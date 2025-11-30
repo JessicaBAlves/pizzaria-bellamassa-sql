@@ -47,3 +47,18 @@ VALUES
 (1, 1, 1, 45.00, 'Sem cebola'),
 (1, 3, 1, 12.00, NULL),
 (2, 2, 1, 48.00, NULL);
+
+-- === NOVOS PEDIDOS EXTRAS  ===
+INSERT INTO PEDIDO (ID_Cliente, ID_Endereco, ID_Funcionario, Data_Hora, Status, Valor_Total)
+VALUES
+(1, 1, 2, '2024-03-20 19:00:00', 'Entregue', 90.00),
+(1, 1, 2, '2024-03-25 21:00:00', 'Em Preparo', 45.00),
+(2, 2, 1, '2024-03-26 20:30:00', 'Saiu para entrega', 110.00);
+
+-- Itens desses novos pedidos
+INSERT INTO ITEM_PEDIDO (ID_Pedido, ID_Produto, Quantidade, Preco_Unitario_Momento, Observacao)
+VALUES
+(3, 1, 2, 45.00, 'Capricha na cebola'), -- Pedido 3 do João
+(4, 2, 1, 45.00, NULL),                 -- Pedido 4 do João
+(5, 1, 1, 45.00, NULL),                 -- Pedido 5 da Maria
+(5, 3, 2, 12.00, 'Bem gelada');

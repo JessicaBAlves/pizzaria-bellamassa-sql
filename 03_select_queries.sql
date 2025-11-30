@@ -19,8 +19,11 @@ SELECT * FROM PRODUTO
 WHERE Preco_Atual > 20
 ORDER BY Preco_Atual DESC;
 
--- 5. Quantos pedidos cada cliente fez
-SELECT C.Nome, COUNT(*) AS Total_Pedidos
-FROM PEDIDO P
-JOIN CLIENTE C ON C.ID_Cliente = P.ID_Cliente
-GROUP BY C.Nome;
+
+-- 5. Quantos pedidos cada cliente fez (Relatório Completo)
+-- O LEFT JOIN garante que até quem nunca comprou (Carlos) apareça na lista com 0
+SELECT C.Nome, COUNT(P.ID_Pedido) AS Total_Pedidos
+FROM CLIENTE C
+LEFT JOIN PEDIDO P ON C.ID_Cliente = P.ID_Cliente
+GROUP BY C.Nome
+ORDER BY Total_Pedidos DESC;
