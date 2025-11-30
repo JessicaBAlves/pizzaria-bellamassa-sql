@@ -1,4 +1,5 @@
-CREATE DATABASE IF NOT EXISTS pizzaria_bellamassa;
+DROP DATABASE IF EXISTS pizzaria_bellamassa;
+CREATE DATABASE pizzaria_bellamassa;
 USE pizzaria_bellamassa;
 
 -- ============================
